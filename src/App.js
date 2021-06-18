@@ -37,7 +37,7 @@ const options = [
     }
 ]
 
-export default () => {
+const App = () => {
 
     const [selected,setSelected] = useState(options[0])
     const [modalState, setModalState] = useState(false)
@@ -98,3 +98,5 @@ export default () => {
         </div>
     )
 }
+
+export default App
