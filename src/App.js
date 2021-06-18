@@ -61,6 +61,7 @@ const App = () => {
                     />
                 </Route>
                 <Route path="/translate">
+                    <h3>This option is only available in localhost at port 3000, for Google's API restrictions</h3>
                     <Translate />
                 </Route>
                 <Route path="/modal">
