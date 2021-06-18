@@ -22,7 +22,7 @@ const Accordion =  ({items}) => {
             </div>
         </React.Fragment>
     })
-    return <div className="ui styled accordion">
+    return <div className="ui styled accordion fluid">
         {renderedItems}
     </div>
 }

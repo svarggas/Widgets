@@ -3,7 +3,7 @@ import Link from './Link';
 
 const Header = () => {
     return (
-        <div className="ui secondary pointing menu">
+        <div className="ui five item menu inverted pointing">
             <Link href="/" className="item">
                 Accordion
             </Link>
@@ -15,6 +15,9 @@ const Header = () => {
             </Link>
             <Link href="/translate" className="item">
                 Translate
+            </Link>
+            <Link href="/modal" className="item">
+                Modal
             </Link>
         </div>
     )

@@ -5,6 +5,7 @@ import Dropdown from './components/Dropdown'
 import Translate from './components/Translate'
 import Route from './components/Route'
 import Header from './components/Header'
+import Modal from './components/modal/Modal'
 
 const items = [
     {
@@ -39,27 +40,61 @@ const options = [
 export default () => {
 
     const [selected,setSelected] = useState(options[0])
+    const [modalState, setModalState] = useState(false)
 
     return (
-        <div>
-            <Header />
-            <Route path="/">
-                <Accordion items={items} />
-            </Route>
-            <Route path="/list">
-                <Search />
-            </Route>
-            <Route path="/dropdown">
-                <Dropdown 
-                    label="Select a color"
-                    options={options} 
-                    selected={selected}
-                    onSelectedChange={setSelected}
-                />
-            </Route>
-            <Route path="/translate">
-                <Translate />
-            </Route>
+        <div className="ui main container">
+            <div className="ui segment">
+                <Header />
+                <Route path="/">
+                    <Accordion items={items} />
+                </Route>
+                <Route path="/list">
+                    <Search />
+                </Route>
+                <Route path="/dropdown">
+                    <Dropdown 
+                        label="Select a color"
+                        options={options} 
+                        selected={selected}
+                        onSelectedChange={setSelected}
+                    />
+                </Route>
+                <Route path="/translate">
+                    <Translate />
+                </Route>
+                <Route path="/modal">
+                    <div className="ui segment">
+
+                        { modalState ? <Modal closeModal={setModalState} /> :
+
+                            <div className="ui two column very grid">
+                                <div className="column" style={{width:"30%",display:"flex",justifyContent:"space-evenly",alignItems:"center"}}>
+                                    
+                                    <img src={window.location.origin + '/img/molly.png'} 
+                                        alt="Filler" 
+                                        style={{width:"80%"}}
+                                    />
+                                </div>
+                                <div className="column" style={{width:"70%"}}>
+                                    <h2>Section One</h2>
+                                    <img src={window.location.origin + '/img/fillerPlain.png'} alt="Filler" width="100%" />
+
+                                    <h2>Section Two</h2>
+                                    <img src={window.location.origin + '/img/fillerPlain.png'} alt="Filler" width="100%"/>
+
+                                    <h2>Section Three</h2>
+                                    <img src={window.location.origin + '/img/fillerPlain.png'} alt="Filler" width="100%"/>
+                                </div>
+                            </div>
+                        }
+                        <br/>
+                        <button className="ui primary button fluid" onClick={() => setModalState(!modalState)}>
+                            Change view
+                        </button>
+                    </div>
+                </Route>
+            </div>
         </div>
     )
 }

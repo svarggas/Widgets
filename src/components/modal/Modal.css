@@ -1,0 +1,6 @@
+.modalBackground {
+    border-radius: 5px;
+    background-color: rgba(200, 200, 200);
+    padding: 30px 0 30px 0;
+    z-index: 1;
+}
